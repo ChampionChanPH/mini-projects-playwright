@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test')
+const login = require("../../common/common-details.json")
 
 test.use({
     storageState: 'resources/authStateDevCMS.json'
@@ -12,8 +13,8 @@ test.describe('tests done in CMS', async () => {
     // user successfully login to the CMS via email and password
     test('successful user login via email and password', async ({ page }) => {
         await page.goto(`https://dev.cms.connect.prosple.com/`)
-        await page.fill("input[name=email]", `christian.anasco@prosple.com`)
-        await page.fill("input[name=password]", `Chan0228`)
+        await page.fill("input[name=email]", login.cms.email)
+        await page.fill("input[name=password]", login.cms.password)
         await Promise.all([
             page.waitForNavigation(),
             page.click("span.auth0-label-submit")
@@ -38,7 +39,7 @@ test.describe('tests done in CMS', async () => {
         }
     })
 
-    test.only('update apply url to include alchemer form', async ({ page }) => {
+    test('update apply url to include alchemer form', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             const url = `${data[index]}/edit`
             await page.goto(url)

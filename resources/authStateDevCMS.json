@@ -5,7 +5,7 @@
       "value": "s%3Av0%3Ac7963460-49ed-11ed-a074-f50a63bf2fe9.PAar0ICRTeONZCARVXaS6ZhZoE%2FpYsESogKcmi%2FSjq0",
       "domain": "prosple.au.auth0.com",
       "path": "/",
-      "expires": 1697109713.888056,
+      "expires": 1697113740.561408,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -21,36 +21,6 @@
       "sameSite": "None"
     },
     {
-      "name": "com.auth0.auth.2fdaef2288bcb2b91afd897871000137",
-      "value": "{%22nonce%22:%226c361a176da82ddaa331aaec04c19471%22%2C%22state%22:%222fdaef2288bcb2b91afd897871000137%22%2C%22lastUsedConnection%22:%22prosple-organisation-database%22}",
-      "domain": "dev.cms.connect.prosple.com",
-      "path": "/",
-      "expires": 1665553913,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "auth0",
-      "value": "s%3AR5kDkR2R41SK1nrcu0JyxnXlEUZpAK0Z.TkcS5Dm8hr6RPFpSipwrJMdZEEIHwSqKFc8FQ3KPEyM",
-      "domain": "prosple.au.auth0.com",
-      "path": "/",
-      "expires": 1665811313.88813,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "co%2Fverifier%2Fhttps%253A%252F%252Fprosple.au.auth0.com%2FMA2Ju_5FvF2c",
-      "value": "%22gYGM2Sl8lGGofW15VLim2TK1kMkyQFxR%22",
-      "domain": "dev.cms.connect.prosple.com",
-      "path": "/",
-      "expires": 1665553013,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
       "name": "did_compat",
       "value": "s%3Av0%3Ac7963460-49ed-11ed-a074-f50a63bf2fe9.PAar0ICRTeONZCARVXaS6ZhZoE%2FpYsESogKcmi%2FSjq0",
       "domain": "prosple.au.auth0.com",
@@ -61,21 +31,51 @@
       "sameSite": "Lax"
     },
     {
-      "name": "auth0_compat",
-      "value": "s%3AR5kDkR2R41SK1nrcu0JyxnXlEUZpAK0Z.TkcS5Dm8hr6RPFpSipwrJMdZEEIHwSqKFc8FQ3KPEyM",
+      "name": "com.auth0.auth.fb8625058cd0b2802f494e17464a772a",
+      "value": "{%22nonce%22:%22b85863a3334de2e29318376602bf65c0%22%2C%22state%22:%22fb8625058cd0b2802f494e17464a772a%22%2C%22lastUsedConnection%22:%22prosple-organisation-database%22}",
+      "domain": "dev.cms.connect.prosple.com",
+      "path": "/",
+      "expires": 1665557940,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "auth0",
+      "value": "s%3A4Hg_oVjZIohbGZwSxgCWmn8SGCzGG3tA.gizISFSIUgz8EBVcq8tEDafVRR6e1j0jIxlwc4HYM2g",
       "domain": "prosple.au.auth0.com",
       "path": "/",
-      "expires": 1665811313.888222,
+      "expires": 1665815340.926736,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "co%2Fverifier%2Fhttps%253A%252F%252Fprosple.au.auth0.com%2FPwLcABX7gLA7",
+      "value": "%22igGz9nCuo5VSOBNYZaVRn78AAEItOLHE%22",
+      "domain": "dev.cms.connect.prosple.com",
+      "path": "/",
+      "expires": 1665557040,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "auth0_compat",
+      "value": "s%3A4Hg_oVjZIohbGZwSxgCWmn8SGCzGG3tA.gizISFSIUgz8EBVcq8tEDafVRR6e1j0jIxlwc4HYM2g",
+      "domain": "prosple.au.auth0.com",
+      "path": "/",
+      "expires": 1665815340.926841,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "SSESSc6780505d45394ad6846686128e913f2",
-      "value": "yZAMEY6P6%2CSkclqL8V8NzYqMwRb20zonWYXeaj0JUdLo4fzd",
+      "value": "15SfBjZubXCSuPvu2O8SM2YLxHl56VBX-fktaHTLd7apqUmg",
       "domain": ".dev.cms.connect.prosple.com",
       "path": "/",
-      "expires": 1667552114.591041,
+      "expires": 1667556141.577378,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -87,7 +87,7 @@
       "localStorage": [
         {
           "name": "Drupal.toolbar.activeTabID",
-          "value": "\"toolbar-item-administration\""
+          "value": "\"toolbar-item-user\""
         }
       ]
     }
