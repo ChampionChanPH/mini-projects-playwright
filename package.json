@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "This will contain all of my mini projects for scraping and web automation using Playwright JS.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChampionChanPH/mini-projects-playwright.git"
