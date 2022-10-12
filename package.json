@@ -1,0 +1,23 @@
+{
+  "name": "mini-projects-playwright",
+  "version": "1.0.0",
+  "description": "This will contain all of my mini projects for scraping and web automation using Playwright JS.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChampionChanPH/mini-projects-playwright.git"
+  },
+  "author": "Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChampionChanPH/mini-projects-playwright/issues"
+  },
+  "homepage": "https://github.com/ChampionChanPH/mini-projects-playwright#readme",
+  "dependencies": {
+    "playwright": "^1.27.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.27.0"
+  }
+}
