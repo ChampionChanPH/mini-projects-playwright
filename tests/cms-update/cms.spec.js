@@ -2,11 +2,11 @@ const { test, expect } = require('@playwright/test')
 const login = require("../../common/common-details.json")
 
 test.use({
-    storageState: 'resources/authStateDevCMS.json'
+    storageState: 'resources/authStateCMS.json'
 })
 
 const data = [
-    "https://dev.cms.connect.prosple.com/node/12345"
+
 ]
 
 test.describe('tests done in CMS', async () => {
@@ -26,12 +26,30 @@ test.describe('tests done in CMS', async () => {
     test('expire courses', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             let url = `${data[index]}`
+            console.log(`${index} ${url}`)
             await page.goto(url)
             const expired = await page.locator("//div[@class='field__label' and text()='Expired']/following-sibling::*").innerText()
             if (expired === "No") {
                 url = `${data[index]}/edit`
                 await page.goto(url)
                 await page.locator("summary[aria-controls=edit-group-b]").click()
+                await page.locator("label[for=edit-field-expired-value]").click()
+                await page.locator("input#edit-submit").click()
+                await page.locator("div.messages.messages--status").waitFor()
+            }
+        }
+    })
+
+    test.only('expire scholarships', async ({ page }) => {
+        for (let index = 0; index < data.length; index++) {
+            let url = `${data[index]}`
+            console.log(`${index} ${url}`)
+            await page.goto(url)
+            const expired = await page.locator("//div[@class='field__label' and text()='Expired']/following-sibling::*").innerText()
+            if (expired === "No") {
+                url = `${data[index]}/edit`
+                await page.goto(url)
+                await page.locator("summary[aria-controls=edit-group-basic-details]").click()
                 await page.locator("label[for=edit-field-expired-value]").click()
                 await page.locator("input#edit-submit").click()
                 await page.locator("div.messages.messages--status").waitFor()
