@@ -6,13 +6,31 @@ test.use({
 })
 
 const data = [
-
+    "https://cms.connect.prosple.com/node/70096",
+    "https://cms.connect.prosple.com/node/70097",
+    "https://cms.connect.prosple.com/node/70098",
+    "https://cms.connect.prosple.com/node/70099",
+    "https://cms.connect.prosple.com/node/70100",
+    "https://cms.connect.prosple.com/node/70101",
+    "https://cms.connect.prosple.com/node/70102",
+    "https://cms.connect.prosple.com/node/70103",
+    "https://cms.connect.prosple.com/node/70104",
+    "https://cms.connect.prosple.com/node/142666",
+    "https://cms.connect.prosple.com/node/142667",
+    "https://cms.connect.prosple.com/node/142668",
+    "https://cms.connect.prosple.com/node/142669",
+    "https://cms.connect.prosple.com/node/142670",
+    "https://cms.connect.prosple.com/node/142671",
+    "https://cms.connect.prosple.com/node/142672",
+    "https://cms.connect.prosple.com/node/142673",
+    "https://cms.connect.prosple.com/node/142674",
+    "https://cms.connect.prosple.com/node/142675",
 ]
 
 test.describe('tests done in CMS', async () => {
     // user successfully login to the CMS via email and password
     test('successful user login via email and password', async ({ page }) => {
-        await page.goto(`https://dev.cms.connect.prosple.com/`)
+        await page.goto(`https://cms.connect.prosple.com/`)
         await page.fill("input[name=email]", login.cms.email)
         await page.fill("input[name=password]", login.cms.password)
         await Promise.all([
@@ -20,13 +38,13 @@ test.describe('tests done in CMS', async () => {
             page.click("span.auth0-label-submit")
         ])
         await page.locator("a.toolbar-icon-user").waitFor()
-        await page.context().storageState({ path: 'resources/authStateDevCMS.json' })
+        await page.context().storageState({ path: 'resources/authStateCMS.json' })
     })
 
     test('expire courses', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             let url = `${data[index]}`
-            console.log(`${index} - ${url}`)
+            console.log(`${index}\t${url}`)
             await page.goto(url)
             const expired = await page.locator("//div[@class='field__label' and text()='Expired']/following-sibling::*").innerText()
             if (expired === "No") {
@@ -40,7 +58,24 @@ test.describe('tests done in CMS', async () => {
         }
     })
 
-    test.only('expire scholarships', async ({ page }) => {
+    test('unexpire courses', async ({ page }) => {
+        for (let index = 0; index < data.length; index++) {
+            let url = `${data[index]}`
+            console.log(`${index}\t${url}`)
+            await page.goto(url)
+            const expired = await page.locator("//div[@class='field__label' and text()='Expired']/following-sibling::*").innerText()
+            if (expired === "Yes") {
+                url = `${data[index]}/edit`
+                await page.goto(url)
+                await page.locator("summary[aria-controls=edit-group-b]").click()
+                await page.locator("label[for=edit-field-expired-value]").click()
+                await page.locator("input#edit-submit").click()
+                await page.locator("div.messages.messages--status").waitFor()
+            }
+        }
+    })
+
+    test('expire scholarships', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             let url = `${data[index]}`
             console.log(`${index} ${url}`)
@@ -57,7 +92,7 @@ test.describe('tests done in CMS', async () => {
         }
     })
 
-    test('update apply url to include alchemer form', async ({ page }) => {
+    test.only('update apply url to include alchemer form', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             const url = `${data[index]}/edit`
             await page.goto(url)
