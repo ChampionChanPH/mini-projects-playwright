@@ -26,7 +26,7 @@ test.describe('tests done in CMS', async () => {
     test('expire courses', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             let url = `${data[index]}`
-            console.log(`${index} ${url}`)
+            console.log(`${index} - ${url}`)
             await page.goto(url)
             const expired = await page.locator("//div[@class='field__label' and text()='Expired']/following-sibling::*").innerText()
             if (expired === "No") {
