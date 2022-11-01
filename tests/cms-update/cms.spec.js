@@ -6,25 +6,6 @@ test.use({
 })
 
 const data = [
-    "https://cms.connect.prosple.com/node/70096",
-    "https://cms.connect.prosple.com/node/70097",
-    "https://cms.connect.prosple.com/node/70098",
-    "https://cms.connect.prosple.com/node/70099",
-    "https://cms.connect.prosple.com/node/70100",
-    "https://cms.connect.prosple.com/node/70101",
-    "https://cms.connect.prosple.com/node/70102",
-    "https://cms.connect.prosple.com/node/70103",
-    "https://cms.connect.prosple.com/node/70104",
-    "https://cms.connect.prosple.com/node/142666",
-    "https://cms.connect.prosple.com/node/142667",
-    "https://cms.connect.prosple.com/node/142668",
-    "https://cms.connect.prosple.com/node/142669",
-    "https://cms.connect.prosple.com/node/142670",
-    "https://cms.connect.prosple.com/node/142671",
-    "https://cms.connect.prosple.com/node/142672",
-    "https://cms.connect.prosple.com/node/142673",
-    "https://cms.connect.prosple.com/node/142674",
-    "https://cms.connect.prosple.com/node/142675",
 ]
 
 test.describe('tests done in CMS', async () => {
@@ -92,15 +73,16 @@ test.describe('tests done in CMS', async () => {
         }
     })
 
-    test.only('update apply url to include alchemer form', async ({ page }) => {
+    test('update apply url to include alchemer form', async ({ page }) => {
         for (let index = 0; index < data.length; index++) {
             const url = `${data[index]}/edit`
+            console.log(`${index}\t${url}`)
             await page.goto(url)
             const prefixUrl = "https://forms.prosple.com/s3/student-information?link="
             const sourceUrl = await page.locator("input[data-drupal-selector=edit-field-record-source-url-0-uri]").inputValue()
             const domesticApplyUrl = await page.locator("input[data-drupal-selector=edit-field-dom-apply-by-url-0-uri]").inputValue()
             const internationalApplyUrl = await page.locator("input[data-drupal-selector=edit-field-int-apply-by-url-0-uri]").inputValue()
-            const destinationUrl = sourceUrl === "" ? sourceUrl.replace(/https?:\/\//, "") : domesticApplyUrl.replace(/https?:\/\//, "")
+            const destinationUrl = sourceUrl !== "" ? sourceUrl.replace(/https?:\/\//, "") : domesticApplyUrl.replace(/https?:\/\//, "")
             const courseName = await page.locator("input[data-drupal-selector=edit-title-0-value]").inputValue()
             const encodedCourse = encodeURIComponent(courseName)
             let institutionName = await page.locator("input[data-drupal-selector=edit-field-parent-institution-0-target-id]").inputValue()
