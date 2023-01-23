@@ -10,7 +10,7 @@ const data = [
 
 test.describe('tests done in CMS', async () => {
     // user successfully login to the CMS via email and password
-    test('successful user login via email and password', async ({ page }) => {
+    test.only('successful user login via email and password', async ({ page }) => {
         await page.goto(`https://cms.connect.prosple.com/`)
         await page.fill("input[name=email]", login.cms.email)
         await page.fill("input[name=password]", login.cms.password)
