@@ -1,4 +1,4 @@
-# Prosple E2E Test | Playwright JS
+# Mini Projects using Playright JS
 This repository contains all mini projects that I wanted to create in Playwright JS.
 
 Once you have the repository cloned, open a new terminal and run the command below:
